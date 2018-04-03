@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://35.170.144.133:5432/jano-center
+    username: postgres
+    password: s3rv3r_psql
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        ddl-auto: validate
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+      #logging:
+      #  config: logback.xml
+server:
+  port: 8088

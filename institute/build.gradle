@@ -1,0 +1,76 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'mx.pensare'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+
+    // web mvc
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    // dto
+    // https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+    compile(group: 'org.modelmapper', name: 'modelmapper', version: '1.1.0')
+
+    // jasypt for encryption
+    // https://mvnrepository.com/artifact/org.jasypt/jasypt
+    compile(group: 'org.jasypt', name: 'jasypt', version: '1.9.2')
+
+    // swagger - rest documentation
+    // https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
+    // https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+
+    // https://mvnrepository.com/artifact/commons-codec/commons-codec
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
+
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: '2.4'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+
+
+    //jpa
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    //spring-security
+    //compile('org.springframework.boot:spring-boot-starter-security')
+
+
+    //db-conectors
+	//runtime('mysql:mysql-connector-java')
+	runtime('org.postgresql:postgresql')
+
+
+
+    //************** test ******************
+    //testCompile('org.springframework.boot:spring-boot-starter-test')
+	//testCompile('org.springframework.security:spring-security-test')
+
+}
+
